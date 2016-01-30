@@ -50,7 +50,11 @@ loop { x in (x * x * x) }
 
 //: ## Sin
 
-loop { x in sin(x * M_PI / 2) }
+loop { x in sin(x * M_PI_2) }
+
+//: ## Tan
+
+loop { x in tan(x * M_PI_2) }
 
 //: ## Catmull-Rom
 
