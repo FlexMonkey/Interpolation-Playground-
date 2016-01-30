@@ -7,9 +7,9 @@
 
 import UIKit
 
-func loop( interpolationFunction: (Double) -> Double )
+func loop( interpolationFunction: Double -> Double )
 {
-    let n = 25
+    let n = 50
     let start = 0.0
     let end = 1.0
     
@@ -52,10 +52,6 @@ loop { x in (x * x * x) }
 
 loop { x in sin(x * M_PI_2) }
 
-//: ## Tan
-
-loop { x in tan(x * M_PI_2) }
-
 //: ## Catmull-Rom
 
 func catmullRom(t: Double, _ p0: Double, _ p1: Double, _ p2: Double, _ p3: Double) -> Double
@@ -73,7 +69,24 @@ let t = 7.5
 
 loop { x in catmullRom(x, q, 0.0, 1.0, t) }
 
+//: ## Elastic In
 
+func elasticIn(x: Double, p: Double = 0.2) -> Double
+{
+    return pow(2, 10 * x) * sin((x - p/4) * (2 * M_PI) / p) + 1
+}
+
+loop { x in elasticIn(x) }
+
+//: ## Elastic Out
+//: Taken from [http://www.joshondesign.com/2013/03/01/improvedEasingEquations](http://www.joshondesign.com/2013/03/01/improvedEasingEquations)
+
+func elasticOut(x: Double, p: Double = 0.2) -> Double
+{
+    return pow(2, -10 * x) * sin((x - p/4) * (2 * M_PI) / p) + 1
+}
+
+loop { x in elasticOut(x) }
 
 
 // end
