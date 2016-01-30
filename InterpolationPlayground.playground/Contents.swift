@@ -73,7 +73,7 @@ loop { x in catmullRom(x, q, 0.0, 1.0, t) }
 
 func elasticIn(x: Double, p: Double = 0.2) -> Double
 {
-    return pow(2, 10 * x) * sin((x - p/4) * (2 * M_PI) / p) + 1
+    return pow(2, 10 * (x - 1)) * sin((x - p/4) * (2 * M_PI) / p) + 1
 }
 
 loop { x in elasticIn(x) }
