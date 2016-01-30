@@ -10,16 +10,12 @@ import UIKit
 func loop( interpolationFunction: Double -> Double )
 {
     let n = 50
-    let start = 0.0
-    let end = 1.0
-    
+
     for i in 0 ..< n
     {
         let v = Double(i) / Double(n)
         
-        let interpolatedV = interpolationFunction(v)
-        
-        let interpolatedValue = (start * interpolatedV) + (end * (1 - interpolatedV))
+        let _ = interpolationFunction(v)
     }
 }
 
