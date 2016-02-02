@@ -9,7 +9,7 @@ import UIKit
 
 func loop( interpolationFunction: Double -> Double )
 {
-    let n = 50
+    let n = 150
 
     for i in 0 ..< n
     {
@@ -84,5 +84,36 @@ func elasticOut(x: Double, p: Double = 0.2) -> Double
 
 loop { x in elasticOut(x) }
 
+//: ## Circular
+
+func easeInCircular (t:Double, _ b: Double, _ c: Double, _ d: Double) -> Double
+{
+    let tt = t / d / 2
+    
+    if (tt < 1)
+    {
+        return -c / 2 * (sqrt(1 - tt * tt) - 1) + b;
+    }
+    else
+    {
+        let ttt = tt - 2
+        
+        return c / 2 * (sqrt(1 - ttt * ttt) + 1) + b;
+    }
+}
+
+loop { x in easeInCircular(x, 1, 0.01, 0.25) }
+
+//: ## Wobble
+
+func wobble(x: Double, wobbleCount: Double, wobbleHeight: Double) -> Double
+{
+    let wobbleHeight = sin(M_PI * x) * wobbleHeight
+    let wobbleOffset = sin(M_PI * wobbleCount * x) * wobbleHeight
+    
+    return x + wobbleOffset
+}
+
+loop { x in wobble(x, wobbleCount: 30, wobbleHeight: 0.25) }
 
 // end
