@@ -9,7 +9,7 @@ import UIKit
 
 func loop( interpolationFunction: Double -> Double )
 {
-    let n = 150
+    let n = 100
 
     for i in 0 ..< n
     {
@@ -30,6 +30,22 @@ loop { x in ((x) * (x) * (3 - 2 * (x))) }
 //: ## Smootherstep
 
 loop { x in ((x) * (x) * (x) * ((x) * ((x) * 6 - 15) + 10)) }
+
+//: ## Kyle McDonald Smootherstep
+//: Taken from [https://twitter.com/kcimc/status/580738643347804160](https://twitter.com/kcimc/status/580738643347804160)
+
+func smootherSmootherStep(t: Double) -> Double
+{
+    var x = -20 * pow(t, 7)
+    
+    x += 70 * pow(t, 6)
+    x -= 84 * pow(t, 5)
+    x += 35 * pow(t, 4)
+    
+    return x
+}
+
+loop { t in smootherSmootherStep(t) }
 
 //: ## Squared
 
@@ -86,14 +102,14 @@ loop { x in elasticOut(x) }
 
 //: ## Wobble
 
-func wobble(x: Double, wobbleCount: Double, wobbleHeight: Double) -> Double
-{
-    let wobbleHeight = sin(M_PI * x) * wobbleHeight
-    let wobbleOffset = sin(M_PI * wobbleCount * x) * wobbleHeight
-    
-    return x + wobbleOffset
-}
+        func wobble(x: Double, wobbleCount: Double, wobbleHeight: Double) -> Double
+        {
+            let wobbleHeight = sin(M_PI * x) * wobbleHeight
+            let wobbleOffset = sin(M_PI * wobbleCount * x) * wobbleHeight
+            
+            return x + wobbleOffset
+        }
 
-loop { x in wobble(x, wobbleCount: 30, wobbleHeight: 0.25) }
+        loop { x in wobble(x, wobbleCount: 30, wobbleHeight: 0.25) }
 
 // end
