@@ -31,7 +31,7 @@ loop { x in (x * x * (3 - 2 * x)) }
 
 loop { x in (x * x * x * (x * (x * 6 - 15) + 10)) }
 
-//: ## Kyle McDonald Smootherstep
+//: ## Kyle McDonald `smoothestStep()`
 //: Taken from [https://twitter.com/kcimc/status/580738643347804160](https://twitter.com/kcimc/status/580738643347804160)
 
 func smoothestStep(t: Double) -> Double
