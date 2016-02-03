@@ -34,7 +34,7 @@ loop { x in ((x) * (x) * (x) * ((x) * ((x) * 6 - 15) + 10)) }
 //: ## Kyle McDonald Smootherstep
 //: Taken from [https://twitter.com/kcimc/status/580738643347804160](https://twitter.com/kcimc/status/580738643347804160)
 
-func smootherSmootherStep(t: Double) -> Double
+func smoothestStep(t: Double) -> Double
 {
     var x = -20 * pow(t, 7)
     
@@ -45,7 +45,7 @@ func smootherSmootherStep(t: Double) -> Double
     return x
 }
 
-loop { t in smootherSmootherStep(t) }
+loop { t in smoothestStep(t) }
 
 //: ## Squared
 
