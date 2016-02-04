@@ -1,4 +1,21 @@
-# Interpolation-Playground-
+# Interpolation-Playground
 Swift playground demonstrating lerp, smooth step, Catmull-Rom and others!
 
-Based on [http://sol.gfxile.net/interpolation/index.html](http://sol.gfxile.net/interpolation/index.html), this playground demonstrates a selection of different interpolation functions. The playground is great because it comes with free graphs!
+![screenshot.png](screenshot.png)
+
+List of interpolations
+
+* Linear Interpolation
+* Smooth Step
+* Smoother Step
+* Smoothest Step
+* Squared
+* Inverse Squared
+* Cubed
+* Sin
+* Catmull-Rom
+* Elastic In
+* Elastic Out
+* Wobble
+
+Feel free to raise a PR to add your own!
