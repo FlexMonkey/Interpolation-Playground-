@@ -17,5 +17,6 @@ List of interpolations
 * Elastic In
 * Elastic Out
 * Wobble
+* Gaussian
 
 Feel free to raise a PR to add your own!
