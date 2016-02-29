@@ -25,7 +25,7 @@ loop { x in x }
 
 //: ## Smoothstep
 
-loop { x in (x * x * (3 - 2 * x)) }
+loop { x in (x * x * (3 - 2 * x)) } 
 
 //: ## Smootherstep
 
@@ -102,14 +102,42 @@ loop { x in elasticOut(x) }
 
 //: ## Wobble
 
-        func wobble(x: Double, wobbleCount: Double, wobbleHeight: Double) -> Double
-        {
-            let wobbleHeight = sin(M_PI * x) * wobbleHeight
-            let wobbleOffset = sin(M_PI * wobbleCount * x) * wobbleHeight
-            
-            return x + wobbleOffset
-        }
+func wobble(x: Double, wobbleCount: Double, wobbleHeight: Double) -> Double
+{
+    let wobbleHeight = sin(M_PI * x) * wobbleHeight
+    let wobbleOffset = sin(M_PI * wobbleCount * x) * wobbleHeight
+    
+    return x + wobbleOffset
+}
 
-        loop { x in wobble(x, wobbleCount: 30, wobbleHeight: 0.25) }
+loop { x in wobble(x, wobbleCount: 30, wobbleHeight: 0.25) }
+
+//: ## Gaussian
+
+let 𝑒 = M_E
+let 𝛑 = M_PI
+
+prefix operator √ {}
+prefix func √(x:Double) -> Double {return sqrt(x)}
+
+func gaussian(x: Double, sigma: Double) -> Double
+{
+    func 𝛗(x: Double, σ: Double) -> Double
+    {
+        let σ² = σ * σ
+        
+        return (1.0 / √(𝛑 * 2 * σ²)) * pow(𝑒, -pow(x, 2) / (2 * σ²))
+    }
+    
+    let max = 𝛗(0.0, σ: sigma)
+    
+    return (max - 𝛗(x, σ: sigma)) / max
+}
+
+loop { x in gaussian(x, sigma: 0.05) }
+
+loop { x in gaussian(x, sigma: 0.15) }
+
+loop { x in gaussian(x, sigma: 0.25) }
 
 // end
