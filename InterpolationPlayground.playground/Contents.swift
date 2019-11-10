@@ -2,9 +2,8 @@
 //:
 //: Based on [Jari Komppa's blog post](http://sol.gfxile.net/interpolation/index.html).
 //:
-//: Simon Gladman / January 2018
-import UIKit
-let 𝝉 = 2 * Double.pi
+//: Simon Gladman / November 2019
+import Cocoa
 //: The base of all following examples is a function that divides the range [0,1] in `n` sections (e.g. 100).
 @discardableResult
 func loop(n: Int = 100, _ interpolationFunction: (Double)->Double) -> [Double] {
@@ -43,6 +42,7 @@ loop { (x: Double) in
     return x * x * x
 }
 //: ## Sin
+let 𝝉 = 2 * Double.pi
 loop { (x: Double) in
     return sin(x * 𝝉/4)
 }
